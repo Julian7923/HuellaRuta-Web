@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HuellaRuta | Gestión inteligente para paseadores de perros en Colombia</title>
+  <link rel="icon" type="image/png" href="img/logo-huellaruta.png">
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="#" class="brand">
+        <img src="img/logo-huellaruta.png" alt="Logo HuellaRuta" class="brand-logo">
+        <span class="brand-name">HuellaRuta</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#beneficios">Beneficios</a>
+        <a href="#prototipo">Probar App</a>
+        <a href="#planes">Planes</a>
+        <a href="#contacto" class="btn-nav">Empezar Gratis</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO / PORTADA -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <span class="badge">🐾 Hecho para paseadores en Colombia</span>
+        <h1>Pasea con las manos libres, cobra sin enredos</h1>
+        <p>
+          Olvídate de responder decenas de chats mientras sostienes varias correas. 
+          Organiza tu ruta de recogida, envía reportes por WhatsApp con un <strong>audio de 4 segundos</strong> 
+          y automatiza tus cobros por <strong>Nequi</strong>.
+        </p>
+        <div class="hero-buttons">
+          <a href="#prototipo" class="btn btn-primary">Probar Simulador Interactivo</a>
+          <a href="#beneficios" class="btn btn-secondary">Cómo Funciona</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <img src="img/hero-paseador.jpg" alt="Paseador de perros usando HuellaRuta en el parque" class="hero-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMA Y SOLUCIÓN (BENEFICIOS) -->
+  <section id="beneficios" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Diseñada para usarse con un solo pulgar al aire libre</h2>
+        <p>Resolvemos los tres dolores de cabeza diarios de los paseadores independientes.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="feature-card">
+          <div class="icon-circle">📍</div>
+          <h3>1. Ruta de Recogida Clara</h3>
+          <p>Visualiza los perros programados del día por edificio y marca con un solo toque cuáles ya recogiste antes de llegar al parque.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-circle">🎤</div>
+          <h3>2. Reporte en 4 Segundos</h3>
+          <p>Graba una nota de voz rápida en el parque. HuellaRuta la convierte en una tarjeta visual limpia lista para enviar por WhatsApp al dueño.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-circle">📲</div>
+          <h3>3. Saldos y Cobros Nequi</h3>
+          <p>Descuenta automáticamente cada paseo de la mensualidad y recibe alertas nocturnas para saber a quién cobrarle renovación mañana.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROTOTIPO INTERACTIVO (4 PANTALLAS) -->
+  <section id="prototipo" class="section prototype-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Prueba el flujo completo de HuellaRuta</h2>
+        <p>Interactúa con las 4 pantallas reales de nuestra Web App móvil.</p>
+      </div>
+
+      <!-- Navegación rápida entre pantallas -->
+      <div class="screen-tabs">
+        <button class="tab-btn active" data-screen="screen-1">1. Ruta</button>
+        <button class="tab-btn" data-screen="screen-2">2. En Parque</button>
+        <button class="tab-btn" data-screen="screen-3">3. Reporte</button>
+        <button class="tab-btn" data-screen="screen-4">4. Cobros</button>
+      </div>
+
+      <!-- MARCO DE CELULAR -->
+      <div class="phone-frame">
+        <div class="phone-notch">
+          <span>10:15 AM</span>
+          <span>HuellaRuta App</span>
+          <span>🔋 92%</span>
+        </div>
+
+        <!-- PANTALLA 1: INICIO / RUTA DE RECOGIDA -->
+        <div class="app-screen active" id="screen-1">
+          <div class="app-header">
+            <img src="img/logo-huellaruta.png" alt="Logo" class="app-mini-logo">
+            <div>
+              <h3>Ruta de Hoy - 6 Perros</h3>
+              <small>Toca cada perro al recogerlo</small>
+            </div>
+          </div>
+
+          <div class="dog-list">
+            <div class="dog-card" id="dog-1">
+              <div>
+                <strong>🐶 Firulais</strong>
+                <p>Ed. Los Pinos · Saldo: 12 paseos</p>
+              </div>
+              <button class="btn-pick" onclick="togglePickup('dog-1', this)">Recogido</button>
+            </div>
+
+            <div class="dog-card" id="dog-2">
+              <div>
+                <strong>🐕 Rocky</strong>
+                <p>Ed. Mirador · <span class="low-balance">Saldo: 1 paseo</span></p>
+              </div>
+              <button class="btn-pick" onclick="togglePickup('dog-2', this)">Recogido</button>
+            </div>
+
+            <div class="dog-card picked" id="dog-3">
+              <div>
+                <strong>🐩 Luna y Simona (x4)</strong>
+                <p>Conjunto El Parque · Saldo: 8 paseos</p>
+              </div>
+              <button class="btn-pick done" onclick="togglePickup('dog-3', this)">✓ Listos</button>
+            </div>
+          </div>
+
+          <button class="btn-app-primary" onclick="goToScreen('screen-2')">
+            Iniciar Paseo en Parque →
+          </button>
+        </div>
+
+        <!-- PANTALLA 2: PASEO ACTIVO (EN PARQUE) -->
+        <div class="app-screen" id="screen-2">
+          <div class="park-banner">
+            📍 Parque El Virrey · 10:15 AM · 6 Perros Activos
+          </div>
+
+          <div class="mic-area">
+            <button class="mic-btn" id="micBtn" onclick="recordAudio()">
+              🎤
+            </button>
+            <p class="mic-label" id="micStatus">Toca para grabar reporte (4s)</p>
+          </div>
+
+          <div class="transcript-box" id="transcriptBox">
+            <small>TRANSCRIPCIÓN AUTOMÁTICA:</small>
+            <p id="transcriptText">Aún no has grabado novedades...</p>
+          </div>
+
+          <button class="btn-app-outline" onclick="simulatePhoto(this)">
+            📸 Subir Foto del Grupo
+          </button>
+
+          <button class="btn-app-primary" onclick="goToScreen('screen-3')">
+            🏁 Fin del Paseo
+          </button>
+        </div>
+
+        <!-- PANTALLA 3: REPORTE DEL DUEÑO (VISTA PREVIA) -->
+        <div class="app-screen" id="screen-3">
+          <div class="postcard">
+            <div class="postcard-header">🐾 REPORTE: ROCKY - Paseo Listo</div>
+            <img src="img/hero-paseador.jpg" alt="Rocky en el parque" class="postcard-img">
+            <ul class="postcard-stats">
+              <li>⏱ <strong>Tiempo en parque:</strong> 60 minutos</li>
+              <li>💧 <strong>Necesidades:</strong> Hizo pipí y popó normal</li>
+              <li class="alert-text">🔔 <strong>Saldo:</strong> Te queda 1 paseo de este mes</li>
+            </ul>
+            <div class="nequi-banner">
+              📲 Renovar mensualidad por Nequi
+            </div>
+          </div>
+
+          <button class="btn-whatsapp" id="waBtn" onclick="sendWhatsApp()">
+            Enviar por WhatsApp
+          </button>
+          <button class="btn-app-accent" onclick="goToScreen('screen-4')">
+            Ver Cuentas de la Noche →
+          </button>
+        </div>
+
+        <!-- PANTALLA 4: CONTROL DE SALDOS Y COBROS -->
+        <div class="app-screen" id="screen-4">
+          <div class="night-header">
+            <h3>🌙 Resumen Nocturno de Cobros</h3>
+            <span class="badge-urgent">Pendientes por renovar: 1</span>
+          </div>
+
+          <div class="billing-card urgent">
+            <p><strong>⚠️ Rocky</strong> (Dueño: Carlos - 315...)</p>
+            <small>Queda 1 paseo · Cobrar mañana</small>
+            <button class="btn-nequi" id="nequiBtn" onclick="sendNequiReminder()">
+              Enviar recordatorio Nequi
+            </button>
+          </div>
+
+          <div class="billing-card ok">
+            <p><strong>✅ Firulais</strong> (Dueña: Ana - 310...)</p>
+            <small>Al día · Quedan 11 paseos</small>
+          </div>
+
+          <button class="btn-app-primary" onclick="goToScreen('screen-1')">
+            Volver al Inicio
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANES Y SERVICIOS -->
+  <section id="planes" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Planes pensados para tu crecimiento</h2>
+        <p>Empieza gratis y escala a medida que sumas más peludos a tu manada.</p>
+      </div>
+      <div class="cards-grid pricing-grid">
+        <div class="price-card">
+          <h3>Plan Cachorro</h3>
+          <div class="price">$0 <span>COP / mes</span></div>
+          <ul>
+            <li>✓ Hasta 5 perros activos</li>
+            <li>✓ Ruta de recogida diaria</li>
+            <li>✓ Reportes por audio de 4s</li>
+            <li>✓ Control básico de saldos</li>
+          </ul>
+          <a href="#contacto" class="btn btn-secondary">Comenzar Gratis</a>
+        </div>
+
+        <div class="price-card featured">
+          <span class="popular-tag">Más elegido</span>
+          <h3>Plan Manada Pro</h3>
+          <div class="price">$29.900 <span>COP / mes</span></div>
+          <ul>
+            <li>✓ Perros y rutas ilimitadas</li>
+            <li>✓ Envío masivo a WhatsApp en 1 toque</li>
